@@ -1,0 +1,14 @@
+:root{
+    --light-black: #242424;
+    --light-white: #FAF8FF;
+    --gray: #D8D6DD;
+    --blue: #00C4E6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--light-white);
+}
