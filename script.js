@@ -1,5 +1,5 @@
-const operationDisplay = document.querySelector("#h3-CurrentNumberDisplay");
-const currentNumberDisplay = document.querySelector("#h2-CurrentNumberDisplay");
+const operationDisplay = document.querySelector("#span-Operation");
+const currentNumberDisplay = document.querySelector("#span-CurrentNumberDisplay");
 const buttonsNumbers = Array.from(document.getElementsByClassName("num"));
 const buttonsBasicOperations = Array.from(document.getElementsByClassName("basicOperation"));
 const buttonsNotBasicOperations = Array.from(document.getElementsByClassName("notBasicOperation"));
@@ -17,29 +17,35 @@ buttonsNumbers.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 buttonsBasicOperations.forEach(btn => btn.addEventListener("click", () => {
-    number1 = Number(currentNumberDisplay.textContent);
-    operation = btn.textContent;
-    operationDisplay.textContent = `${number1} ${operation}`;
+    if (currentNumberDisplay.textContent != "")
+    {
+        number1 = Number(currentNumberDisplay.textContent);
+        operation = btn.textContent;
+        operationDisplay.textContent = `${number1} ${operation}`;
 
-    currentNumberDisplay.textContent = "";
+        currentNumberDisplay.textContent = "";
+    }
 }));
 
 buttonsNotBasicOperations.forEach(btn => btn.addEventListener("click", () => {
-    number1 = Number(currentNumberDisplay.textContent);
-    operation = btn.textContent;
-
-    if (operation == "√")
+    if (currentNumberDisplay.textContent != "")
     {
-        operationDisplay.textContent = `√${number1}`;
-        currentNumberDisplay.textContent = `${Math.sqrt(number1)}`;
-    }
-    else if (operation == "1/x")
-    {
-        operationDisplay.textContent = `1 ÷ ${number1}`;
-        currentNumberDisplay.textContent = `${1 / number1}`;
-    }
+        number1 = Number(currentNumberDisplay.textContent);
+        operation = btn.textContent;
 
-    operation = null;
+        if (operation == "√")
+        {
+            operationDisplay.textContent = `√${number1}`;
+            currentNumberDisplay.textContent = `${Math.sqrt(number1)}`;
+        }
+        else if (operation == "1/x")
+        {
+            operationDisplay.textContent = `1 ÷ ${number1}`;
+            currentNumberDisplay.textContent = `${1 / number1}`;
+        }
+
+        operation = null;
+    }
 }));
 
 //clear all the variables and content
@@ -59,7 +65,7 @@ document.getElementById("btn-back").addEventListener("click", () => {
 });
 
 btnEqual.addEventListener("click", () => {
-    if (number1 != 0)
+    if (number1 != 0 && operation != null)
     {
         number2 = Number(currentNumberDisplay.textContent);
         operationDisplay.textContent = `${number1} ${operation} ${number2} =`;

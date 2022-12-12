@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 :root{
     --light-black: #242424;
     --light-white: #FAF8FF;
@@ -5,8 +7,9 @@
     --blue: #00C4E6;
 }
 
-* {
+*{
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body{
@@ -16,4 +19,61 @@ body{
 #div-main{
     width: fit-content;
     margin: 0px auto;
+}
+
+h1{
+    text-align: center;
+}
+
+#div-calculator{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    width: 570px;
+    height: fit-content;
+    
+    padding: 40px;
+    background-color: var(--light-black);
+}
+
+#div-calculator *{
+    color: var(--light-black);
+}
+
+#div-display{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    background-color: var(--light-white);
+
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+#span-Operation{
+    text-align: right;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#span-CurrentNumberDisplay{
+    text-align: right;
+    font-size: 27px;
+}
+
+#div-buttons{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
+    padding: 16px 16px 8px;
+
+    background-color: var(--light-white);
+}
+
+button{
+    width: 108px;
+    height: 66px;
+    margin-bottom: 8px;
 }
