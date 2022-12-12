@@ -12,3 +12,8 @@
 body{
     background-color: var(--light-white);
 }
+
+#div-main{
+    width: fit-content;
+    margin: 0px auto;
+}
