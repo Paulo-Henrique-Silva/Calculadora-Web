@@ -18,7 +18,7 @@ buttonsNumbers.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 buttonsBasicOperations.forEach(btn => btn.addEventListener("click", () => {
-    if (currentNumberDisplay.textContent != "")
+    if (currentNumberDisplay.textContent != "" && !isNaN(Number(currentNumberDisplay.textContent)))
     {
         number1 = Number(currentNumberDisplay.textContent);
         operation = btn.textContent;
@@ -26,10 +26,14 @@ buttonsBasicOperations.forEach(btn => btn.addEventListener("click", () => {
 
         currentNumberDisplay.textContent = "";
     }
+    else if (currentNumberDisplay.textContent.length == 0 && (btn.textContent == "+" || btn.textContent == "-"))
+    {
+        currentNumberDisplay.textContent += btn.textContent;
+    }
 }));
 
 buttonsNotBasicOperations.forEach(btn => btn.addEventListener("click", () => {
-    if (currentNumberDisplay.textContent != "")
+    if (currentNumberDisplay.textContent != "" && !isNaN(Number(currentNumberDisplay.textContent)))
     {
         number1 = Number(currentNumberDisplay.textContent);
         operation = btn.textContent;
@@ -37,11 +41,11 @@ buttonsNotBasicOperations.forEach(btn => btn.addEventListener("click", () => {
         if (operation == "√")
         {
             operationDisplay.textContent = `√${number1}`;
-            currentNumberDisplay.textContent = `${Math.sqrt(number1)}`;
+            currentNumberDisplay.textContent = `${number1 < 0 ? "Math Error" : Math.sqrt(number1)}`;
         }
         else if (operation == "1/x")
         {
-            operationDisplay.textContent = `1 ÷ ${number1}`;
+            operationDisplay.textContent = number1 < 0 ? `1 ÷ (${number1})` : `1 ÷ ${number1}`;
             currentNumberDisplay.textContent = `${number1 == 0 ? "Math Error" : 1 / number1}`;
         }
 
@@ -68,10 +72,10 @@ document.getElementById("btn-back").addEventListener("click", () => {
 
 //does the operation and resets op var at the end.
 btnEqual.addEventListener("click", () => {
-    if (number1 != 0 && operation != null)
+    if (number1 != 0 && operation != null && !isNaN(Number(currentNumberDisplay.textContent)))
     {
         number2 = Number(currentNumberDisplay.textContent);
-        operationDisplay.textContent = `${number1} ${operation} ${number2} =`;
+        operationDisplay.textContent = number2 >= 0 ? `${number1} ${operation} ${number2} =` : `${number1} ${operation} (${number2}) =`;
 
         if (operation == "+")
             currentNumberDisplay.textContent = `${number1 + number2}`;
@@ -82,6 +86,7 @@ btnEqual.addEventListener("click", () => {
         else if (operation == "÷")
             currentNumberDisplay.textContent = `${number2 != 0 ? number1 / number2 : "Math Error"}`; 
     }
+    
 
     operation = null;
 });
