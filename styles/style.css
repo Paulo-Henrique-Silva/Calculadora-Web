@@ -3,8 +3,6 @@
 :root{
     --light-black: #242424;
     --light-white: #faf8ff;
-    --gray: #D8D6DD;
-    --blue: #00C4E6;
 }
 
 *{
@@ -38,9 +36,10 @@ h1{
     background-color: var(--light-black);
 
     border-radius: 20px;
+    box-shadow: 2px 2px 10px var(--light-black);
 }
 
-#div-calculator *{
+#div-calculator *:not(span, button){
     color: var(--light-black);
     border-radius: 20px;
 }
@@ -58,34 +57,27 @@ h1{
     margin-bottom: 20px;
 }
 
-#span-Operation{
+#div-display span{
     width: 100%;
     text-align: right;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-
-    margin-bottom: 10px;
-
-    font-size: 18px;
-    font-weight: 400;
 
     background-color: transparent;
     border: none;
 }
 
-#span-CurrentNumberDisplay{
-    width: 100%;
-    text-align: right;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
+#span-Operation{
+    margin-bottom: 10px;
 
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#span-CurrentNumberDisplay{
     font-size: 27px;
     font-weight: 600;
-
-    background-color: transparent;
-    border: none;
 }
 
 #div-buttons{
@@ -106,24 +98,44 @@ button{
 
     margin-bottom: 8px;
 
-    background-color: var(--gray);
+    background-color: hsl(257, 9%, 85%);
     border: none;
+    border-radius: 20px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+
 button:hover{
-    background-color: #cdccce;
+    background-color: hsl(257, 9%, 80%);
 }
 
 button:active{
     transform: scale(0.98);
 }
 
+/* Buttons classes */
+/*Hover makes colors darker*/
+.basicOperation, .notBasicOperation{
+    background-color: hsl(202, 21%, 62%);
+}
+
+.basicOperation:hover, .notBasicOperation:hover{
+    background-color: hsl(202, 21%, 46%);
+}
+
+.clear{
+    background-color: hsl(124, 38%, 65%);
+}
+
+.clear:hover{
+    background-color: hsl(124, 38%, 49%);
+}
+
 #btn-equal{
-    background-color: var(--blue);
+    background-color: hsl(189, 100%, 45%);
 }
 
 #btn-equal:hover{
-    background-color: #1EAFED;
+    background-color: hsl(189, 100%, 34%);
 }
