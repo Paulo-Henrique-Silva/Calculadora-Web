@@ -86,7 +86,6 @@ btnEqual.addEventListener("click", () => {
         else if (operation == "÷")
             currentNumberDisplay.textContent = `${number2 != 0 ? number1 / number2 : "Math Error"}`; 
     }
-    
 
     operation = null;
 });

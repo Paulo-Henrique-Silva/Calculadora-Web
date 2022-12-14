@@ -59,17 +59,33 @@ h1{
 }
 
 #span-Operation{
+    width: 100%;
     text-align: right;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     margin-bottom: 10px;
 
     font-size: 18px;
     font-weight: 400;
+
+    background-color: transparent;
+    border: none;
 }
 
 #span-CurrentNumberDisplay{
+    width: 100%;
     text-align: right;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     font-size: 27px;
     font-weight: 600;
+
+    background-color: transparent;
+    border: none;
 }
 
 #div-buttons{

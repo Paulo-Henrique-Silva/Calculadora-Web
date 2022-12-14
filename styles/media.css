@@ -1,0 +1,22 @@
+/* Mobile design */
+@media screen and (max-width: 768px) {
+    #div-calculator{
+        width: 285px;
+        
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #div-display{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    #div-buttons{
+        padding: 16px 8px 8px;
+    }
+    
+    button{
+        width: 51px;
+    }
+}
